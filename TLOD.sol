@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity =0.8.0;
 
 interface ApproveAndCallFallBack {
     function receiveApproval(address sender, uint256 amount, address token, bytes calldata extraData) external returns(bool);

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity =0.8.0;
 
 interface IAuthority {
     function canCall(address src, address dst, bytes4 sig) external view returns (bool);
@@ -26,11 +26,13 @@ contract Auth {
     }
     
     function setOwner(address owner) external onlyAuth {
+        require(address(0) != owner, "set owner to the zero address");
         _owner = owner;
         emit SetOwner(_owner);
     }
 
     function setAuthority(address authority) external onlyAuth {
+        require(address(0) != authority, "set authority to the zero address");
         _authority = authority;
         emit SetAuthority(_authority);
     }
